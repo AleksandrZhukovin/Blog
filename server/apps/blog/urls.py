@@ -6,5 +6,5 @@ from server.apps.blog.logic import *
 app_name = 'blog'
 
 urlpatterns = [
-    path(),
+    path('', IndexView.as_view(), name='index'),
 ]
