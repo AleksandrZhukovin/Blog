@@ -1,19 +1,12 @@
-<header id="header" class="alt">
-    <h1><a href="/">Spectral</a></h1>
-    <nav id="nav">
-        <ul>
-            <li class="special">
-                <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                <div id="menu">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="generic.html">Generic</a></li>
-                        <li><a href="elements.html">Elements</a></li>
-                        <li><a href="#">Sign Up</a></li>
-                        <li><a href="#">Log In</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </nav>
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="{% url 'blog:index' %}" class="header__logo">blog</a>
+            <nav class="header__nav">
+                <a href="{% url 'blog:index' %}" class="header__nav-link">Home</a>
+                <a href="#articles" class="header__nav-link">Articles</a>
+                <a href="#about" class="header__nav-link">About</a>
+            </nav>
+        </div>
+    </div>
 </header>

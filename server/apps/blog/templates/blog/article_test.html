@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+
+{% block title %}On the Art of Slowing Down{% endblock %}
+{% block meta_description %}There's a certain magic in doing nothing. Not the restless kind of nothing, but the
+intentional pause.{% endblock %}
+
+{% block content %}
+<article class="article">
+    <div class="container">
+        <!-- Article Header -->
+        <header class="article__header">
+            <a href="{% url 'blog:index' %}" class="article__back">← Back</a>
+            <time class="article__date">February 6, 2026</time>
+            <h1 class="article__title">On the Art of Slowing Down</h1>
+        </header>
+
+        <!-- Hero Image -->
+        <figure class="article__hero">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop"
+                alt="Misty mountains" class="article__hero-img">
+        </figure>
+
+        <!-- Article Content -->
+        <div class="article__content">
+            <p>
+                There's a certain magic in doing nothing. Not the restless kind of nothing—the kind where your mind
+                races through tomorrow's to-do list while your body pretends to rest. I mean the intentional pause. The
+                deliberate stillness.
+            </p>
+
+            <p>
+                I've been thinking about this a lot lately. We live in a world that celebrates busyness, that wears
+                exhaustion like a badge of honor. "How are you?" we ask each other, and the answer is almost always the
+                same: "Busy. So busy."
+            </p>
+
+            <p>
+                But when did busy become the goal? When did we start measuring our worth in tasks completed, emails
+                answered, meetings attended?
+            </p>
+
+            <p>
+                This morning, I sat by the window with a cup of tea that I actually let cool down before drinking. I
+                watched the clouds drift by—really watched them, not just glanced at them between scrolling through my
+                phone. And for a few minutes, nothing needed to happen. Nothing needed to be productive or optimized or
+                efficient.
+            </p>
+
+            <p>
+                It felt almost rebellious.
+            </p>
+
+            <p>
+                The Japanese have a concept called "ma"—the pause between notes in music, the empty space in a painting,
+                the silence between words. It's not emptiness; it's fullness of a different kind. It's the breath that
+                gives meaning to what comes before and after.
+            </p>
+
+            <p>
+                I'm trying to find more "ma" in my days. Not by adding meditation apps or scheduling "relaxation time"
+                (which somehow defeats the purpose), but by simply doing less. By leaving gaps. By resisting the urge to
+                fill every moment with activity or consumption or noise.
+            </p>
+
+            <p>
+                It's harder than it sounds. The discomfort of stillness is real. But so is the quiet clarity that comes
+                after you push through it.
+            </p>
+
+            <p>
+                Maybe slowing down isn't about doing nothing. Maybe it's about finally having time to feel everything.
+            </p>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="article__gallery">
+            <figure class="article__gallery-item">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop"
+                    alt="Foggy forest" class="article__gallery-img">
+            </figure>
+            <figure class="article__gallery-item">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop"
+                    alt="Mountain sunrise" class="article__gallery-img">
+            </figure>
+            <figure class="article__gallery-item">
+                <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&h=400&fit=crop"
+                    alt="Calm lake" class="article__gallery-img">
+            </figure>
+        </div>
+    </div>
+</article>
+{% endblock %}

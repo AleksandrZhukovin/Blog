@@ -1,5 +1,104 @@
 {% extends 'base/base.html' %}
 
+{% block title %}Home{% endblock %}
+{% block meta_description %}Thoughts on life, moments, and everything in between.{% endblock %}
+
 {% block content %}
-    <h1>Success</h1>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero__content">
+            <p class="hero__greeting">Welcome</p>
+            <h1 class="hero__title">Quiet Reflections</h1>
+            <p class="hero__subtitle">
+                A space for thoughts that wander, stories that linger,
+                and the small moments that shape who we become.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Articles Section -->
+<section id="articles" class="section">
+    <div class="container">
+        <header class="section__header">
+            <h2 class="section__title">Recent Writings</h2>
+            <div class="section__line"></div>
+        </header>
+
+        <div class="articles">
+            {% for article in articles %}
+            <a href="{% url 'blog:article_detail' article.pk %}" class="article-card">
+                {% if article.images.first %}
+                <div class="article-card__image">
+                    <img src="{{ article.images.first.image.url }}" alt="{{ article.title }}">
+                </div>
+                {% endif %}
+                <div class="article-card__body">
+                    <div class="article-card__meta">
+                        <span>{{ article.created_at|date:"M d, Y" }}</span>
+                    </div>
+                    <h3 class="article-card__title">{{ article.title }}</h3>
+                    <p class="article-card__excerpt">
+                        {{ article.content|truncatewords:30 }}
+                    </p>
+                </div>
+            </a>
+            {% empty %}
+            <!-- Sample articles for preview -->
+            <a href="#" class="article-card">
+                <div class="article-card__body">
+                    <div class="article-card__meta">
+                        <span>Feb 06, 2026</span>
+                    </div>
+                    <h3 class="article-card__title">On the Art of Slowing Down</h3>
+                    <p class="article-card__excerpt">
+                        There's a certain magic in doing nothing. Not the restless kind of nothing,
+                        but the intentional pause—a cup of tea cooling by the window...
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <div class="article-card__body">
+                    <div class="article-card__meta">
+                        <span>Jan 28, 2026</span>
+                    </div>
+                    <h3 class="article-card__title">Letters I Never Sent</h3>
+                    <p class="article-card__excerpt">
+                        We carry conversations that never happened. Words rehearsed in the shower,
+                        truths spoken to empty rooms...
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <div class="article-card__body">
+                    <div class="article-card__meta">
+                        <span>Jan 15, 2026</span>
+                    </div>
+                    <h3 class="article-card__title">The Comfort of Routine</h3>
+                    <p class="article-card__excerpt">
+                        Morning coffee. The same playlist on shuffle. The walk that takes slightly
+                        longer because you always stop at that one corner...
+                    </p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <header class="section__header">
+            <h2 class="section__title">About</h2>
+            <div class="section__line"></div>
+        </header>
+        <p class="about__text">
+            Just someone trying to make sense of it all—one thought at a time.
+            This is where I collect the quiet observations, the late-night musings,
+            and the small epiphanies that come when you least expect them.
+        </p>
+    </div>
+</section>
 {% endblock %}

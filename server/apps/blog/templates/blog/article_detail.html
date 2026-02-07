@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}{{ article.title }}{% endblock %}
+{% block meta_description %}{{ article.content|truncatewords:25 }}{% endblock %}
+
+{% block content %}
+<article class="article">
+    <div class="container">
+        <!-- Article Header -->
+        <header class="article__header">
+            <a href="{% url 'blog:index' %}" class="article__back">← Back</a>
+            <time class="article__date">{{ article.created_at|date:"F d, Y" }}</time>
+            <h1 class="article__title">{{ article.title }}</h1>
+        </header>
+
+        <!-- Hero Image (optional) -->
+        {% if article.images.first %}
+        <figure class="article__hero">
+            <img src="{{ article.images.first.image.url }}" alt="{{ article.title }}" class="article__hero-img">
+        </figure>
+        {% endif %}
+
+        <!-- Article Content -->
+        <div class="article__content">
+            {{ article.content|linebreaks }}
+        </div>
+
+        <!-- Additional Images Gallery (if more than one image) -->
+        {% if article.images.count > 1 %}
+        <div class="article__gallery">
+            {% for image in article.images.all %}
+            {% if not forloop.first %}
+            <figure class="article__gallery-item">
+                <img src="{{ image.image.url }}" alt="Image {{ forloop.counter }}" class="article__gallery-img">
+            </figure>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}
